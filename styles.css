@@ -643,26 +643,24 @@ body {
     
 
     .topo-pagina{
-        flex-direction: column; 
+        flex-direction: column;
         height: auto; 
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 5px; 
+        padding-bottom: 5px;
     }
     
     .nome {
-        font-size: 32px;
-        padding: 5px 5%; 
-        width: 100%;
-        text-align: center;
+        display: none;
     }
 
-    .nome h1 {
-        font-size: 18px; 
+   .topo {
+        height: auto; 
     }
     
     .menu-navegacao-rapida {
-        width: 90%; 
-        margin-top: 15px;
+        width: 100%; 
+        margin-top: 0;
+        align-items: center;
     }
     
     .container-caixas {
@@ -673,23 +671,22 @@ body {
     }
     
     .box1 {
-        height: 35px;
-        min-width: 30%; 
+        height: 30px; 
+        min-width: 80px; 
         padding: 0 5px;
-        border-width: 4px;
+        border-width: 3px; 
     }
     
     .texto_box {
-        font-size: 12px;
+        font-size: 11px;
     }
     
     .baixo-nav {
-        border-bottom: 5px solid var(--cor-borda-principal);
+        width: 90%;
     }
 
     .apresentacao-container {
-        flex-direction: column; 
-        padding-top: 10px; 
+        padding-top: 80px; 
         align-items: center;
     }
 
@@ -731,8 +728,14 @@ body {
     }
     
     .container-caixas {
-        flex-direction: row; 
-        gap: 20px;
+        flex-wrap: nowrap; 
+        justify-content: center; 
+        gap: 8px;
+        width: 90%;
+    }
+
+    .borda-topo {
+        height: 5px; 
     }
     
     .borda_foto img {
