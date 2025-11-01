@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=IM+FELL+English&display=swap" rel="stylesheet" />
     <link href="styles.css" rel="stylesheet" />
     <script src="script.js" defer></script>
-    <title>Portifolio-1</title>
+    <title>Portifolio</title>
 </head>
 
 <body>
@@ -20,6 +20,18 @@
             <header>Portifolio 📜</header>
             <h1>Lucas Dos Santos Mato Grosso - 19 anos</h1>
             </div>   
+
+            <button id="menu-hamburguer" class="menu-hamburguer" aria-label="Abrir Menu">
+                    <span class="linha"></span>
+                    <span class="linha"></span>
+                    <span class="linha"></span>
+            </button>
+
+            <div class="mensagem-e-relogio">
+            <div id="relogio-digital" class="relogio-digital"></div>
+            <div id="mensagem-topo" class="mensagem-topo"></div>
+            </div>
+
             <div class="menu-navegacao-rapida">
                     <div class="baixo-nav"><footer><h3>Navegação Rápida 🔎</h3></footer></div>
                     <nav class="container-caixas">
@@ -44,7 +56,7 @@
             <div class="bio-conteudo">
                 <div class="bio-titulo"><h2>Biografia:</h2></div>
                 <div class="bio-texto">
-                    Nasci em Cubatão-SP e, desde a infância, estive inserido em um ambiente 
+                    Meu nome é Lucas dos Santos Mato Grosso, nasci em Cubatão-SP e, desde a infância, estive inserido em um ambiente 
                     tecnológico, influenciado pelo trabalho de meu pai na área de manutenção de computadores. 
                     Essa vivência me proporcionou facilidade tanto no uso quanto no conserto de equipamentos, 
                     despertando em mim o interesse por tecnologia desde cedo. Sempre busquei dar o meu melhor 
@@ -59,7 +71,7 @@
         
         <div class="secoes-secundarias">
             <section id="sobre_mim"> 
-                <div class="container_geral"><h2>Sobre Mim</h2></div>
+                <div class="container_geral"><h2>Sobre Mim 📖</h2></div>
                 <div class="sobre_mim_texto">
                     Sou estudante de Engenharia da Computação, apaixonado por tecnologia, gatos e café.Tenho facilidade em resolver problemas e gosto de me desafiar constantemente, buscando aprender algo novo todos os dias. Me considero uma pessoa proativa e dinâmica, sempre disposta a dar o meu melhor em qualquer tarefa.
                     <p>Acredito que a vida se torna mais divertida quando estamos cercados de pessoas que amamos, por isso valorizo os momentos com meus amigos.</p>
@@ -76,7 +88,7 @@
             </section>
         
             <section id="projetos"> 
-                <div class="container_geral"><h2>Projetos</h2></div>
+                <div class="container_geral"><h2>Projetos 🔨</h2></div>
                 <a href="https://www.youtube.com/watch?v=MqQFGdrp2tI" class="container-projetos" target="_blank">
                     <div class="projeto-item">Arquitec<div class="text-overlay">A confecção em grupo da maquete de uma casa utilizando diversas ferramentas do inovfablab. </div></div>
                 </a>
@@ -89,7 +101,7 @@
             </section>
         
             <section id="contato">
-                <div class="container_geral"><h2>Contatos</h2></div>
+                <div class="container_geral"><h2>Contatos 📞</h2></div>
         
                 <div class="container-grupos">
                     <div class="linha-contato">
@@ -123,19 +135,19 @@
 
         <section id="mensagem">
             
-    <div class="container_geral" style="margin-top: 50px;"><h2>Envie uma Mensagem</h2></div>
+    <div class="container_geral"><h2>Envie uma Mensagem ✉</h2></div>
 
     <form id="formulario-contato" class="formulario-contato">
         
         <div class="campo-grupo">
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+            <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
             <span class="mensagem-erro" id="erro-nome"></span>
         </div>
 
         <div class="campo-grupo">
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
+            <input type="email" id="email" name="email" placeholder="email@exemplo.com" required>
             <span class="mensagem-erro" id="erro-email"></span>
         </div>
 

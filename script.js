@@ -1,6 +1,17 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    const paletaCores = {
+    'cor-fundo-principal': '#938D6C',
+    'cor-fundo-secundario': '#B0A97C',
+    'cor-borda-principal': '#847D52',
+    'cor-borda-escura': '#5D593F',
+    'cor-texto-principal': '#000000',
+    'cor-texto-secundario': '#060606',
+    'cor-hover': '#b8b27e',
+    'cor-overlay': 'rgba(0, 0, 0, 0.7)'
+};
+
 
 const linksNavegacao = document.querySelectorAll('.container-caixas a[href^="#"]'); 
 
@@ -25,21 +36,6 @@ const linksNavegacao = document.querySelectorAll('.container-caixas a[href^="#"]
         });
     });
 
-
-
-
-const paletaCores = {
-    'cor-fundo-principal': '#938D6C',
-    'cor-fundo-secundario': '#B0A97C',
-    'cor-borda-principal': '#847D52',
-    'cor-borda-escura': '#5D593F',
-    'cor-texto-principal': '#000000',
-    'cor-texto-secundario': '#060606',
-    'cor-hover': '#b8b27e',
-    'cor-overlay': 'rgba(0, 0, 0, 0.7)'
-};
-
-
 function applyCssVariables(colors) {
     const root = document.documentElement; 
     for (const [key, value] of Object.entries(colors)) {
@@ -58,17 +54,17 @@ function definirTema(tema) {
     const botaoTrocaTema = document.getElementById('troca-tema');
 
     if (tema === modoEscuroNome) {
-        elementoHtml.setAttribute('data-theme', modoEscuroNome);
+        elementoHtml.setAttribute('site-theme', modoEscuroNome);
         localStorage.setItem(chaveArmazenamento, modoEscuroNome);
         if (botaoTrocaTema) {
-            botaoTrocaTema.textContent = '☀️'; 
+            botaoTrocaTema.textContent = '🌙'; 
             botaoTrocaTema.setAttribute('aria-label', 'Alternar para o Tema Claro');
         }
     } else {
-        elementoHtml.removeAttribute('data-theme');
+        elementoHtml.removeAttribute('site-theme');
         localStorage.setItem(chaveArmazenamento, 'claro'); 
         if (botaoTrocaTema) {
-            botaoTrocaTema.textContent = '🌙'; 
+            botaoTrocaTema.textContent = '☀️'; 
             botaoTrocaTema.setAttribute('aria-label', 'Alternar para o Tema Escuro');
         }
     }
@@ -76,7 +72,7 @@ function definirTema(tema) {
 
 function alternarTema() {
     const elementoHtml = document.documentElement;
-    const temaAtual = elementoHtml.getAttribute('data-theme');
+    const temaAtual = elementoHtml.getAttribute('site-theme');
     
     if (temaAtual === modoEscuroNome) {
         definirTema('claro');
@@ -195,6 +191,64 @@ function alternarTema() {
     }
 
 
+   function exibirMensagemBoasVindas() {
+        const hora = new Date().getHours();
+        let mensagem_topo;
+
+        if (hora >= 6 && hora < 12) {
+            mensagem_topo = "Bom dia, visitante!"; 
+        } else if (hora >= 12 && hora < 18) {
+            mensagem_topo = "Boa tarde, visitante!"; 
+        } else {
+            mensagem_topo = "Boa noite, visitante!";
+        }
+
+        const elementoTopo = document.getElementById('mensagem-topo');
+        if (elementoTopo) {
+            elementoTopo.textContent = mensagem_topo
+    }
+    }
    
+    exibirMensagemBoasVindas();
+
+
+    const btnHamburguer = document.getElementById('menu-hamburguer');
+    const menuNavegacao = document.querySelector('.menu-navegacao-rapida');
+    const linksMenu = document.querySelectorAll('.menu-navegacao-rapida a');
+
+    function toggleMenu() {
+        btnHamburguer.classList.toggle('aberto');
+        menuNavegacao.classList.toggle('aberto');
+    }
+
+    btnHamburguer.addEventListener('click', toggleMenu);
+  
+    linksMenu.forEach(link => {
+        link.addEventListener('click', () => {
+            if (menuNavegacao.classList.contains('aberto')) {
+                toggleMenu();
+            }
+        });
+    });
+
+    function atualizarRelogio() {
+        const agora = new Date();
+        
+        // Formata a hora, minuto e segundo para ter dois dígitos (ex: 09:05:30)
+        const hora = String(agora.getHours()).padStart(2, '0');
+        const minuto = String(agora.getMinutes()).padStart(2, '0');
+        const segundo = String(agora.getSeconds()).padStart(2, '0');
+        
+        const tempoFormatado = `${hora}:${minuto}:${segundo}`;
+        
+        const elementoRelogio = document.getElementById('relogio-digital');
+        if (elementoRelogio) {
+            elementoRelogio.textContent = tempoFormatado;
+        }
+    }
+    
+    atualizarRelogio();
+    setInterval(atualizarRelogio, 1000);
 
 });
+
