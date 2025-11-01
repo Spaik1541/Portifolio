@@ -125,7 +125,7 @@ body {
     align-items: center;
     gap: 30px;
     padding: 30px 5%;
-    padding-top: 120px;
+    padding-top: 140px;
 }
 
 .foto-wrap {
@@ -166,7 +166,7 @@ body {
   color: var(--cor-texto-principal);
   font-family: "Jacques Francois Shadow", serif;
   font-weight: normal;
-  font-size: 4vw; 
+  font-size: 6vw;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -175,7 +175,7 @@ body {
   color: var(--cor-texto-principal);
   font-family: "Jacques Francois", serif;
   font-weight: normal;
-  font-size: 1.5vw; 
+  font-size: 4vw;
   line-height: 1.5;
   text-align: left;
 }
@@ -519,12 +519,17 @@ body {
     .topo-pagina{
         height: 120px; 
     }
+
+    .foto-wrap {
+        width: 40%;
+        max-width: 481px;
+    }
     
+   .nome {
+        font-size: 32px; 
+    }
     .nome h1 {
         font-size: 24px;
-    }
-    .nome {
-        font-size: 32px;
     }
     
 
@@ -537,7 +542,7 @@ body {
     }
     
     .container-caixas {
-        gap: 15px; 
+        flex-wrap: nowrap; 
     }
     
     .box1 {
@@ -549,9 +554,7 @@ body {
     .texto_box {
         font-size: 20px;
     }
-    
-    
-    
+
     .apresentacao-container {
         flex-direction: row;
         justify-content: center;
@@ -566,20 +569,23 @@ body {
         max-width: 481px;
     }
     
-    .biografia-conteudo {
-        width: 55%;
-        max-width: 700px;
-    }
-    
-    .biografia {
-        font-size: 54px;
-        text-align: left; 
-    }
-    
     .bio {
         font-size: 20px;
     }
   
+    .bio-conteudo {
+        width: 55%;
+        max-width: 700px;
+    }
+
+    .bio-texto { 
+      font-size: 25px; 
+    }
+
+    .bio-titulo { 
+      font-size: 40px; 
+      text-align: left;
+    }
     
     .container_geral h2 {
         font-size: 50px;
@@ -619,10 +625,7 @@ body {
 
 }
 @media (min-width: 1200px) {
-    .biografia {
-        font-size: 64px;
-    }
-    
+
     .bio {
         font-size: 26px;
     }
@@ -640,16 +643,21 @@ body {
     
 
     .topo-pagina{
-        flex-direction: column;
+        flex-direction: column; 
         height: auto; 
         padding-top: 10px;
         padding-bottom: 10px;
     }
     
     .nome {
+        font-size: 32px;
         padding: 5px 5%; 
         width: 100%;
         text-align: center;
+    }
+
+    .nome h1 {
+        font-size: 18px; 
     }
     
     .menu-navegacao-rapida {
@@ -677,6 +685,32 @@ body {
     
     .baixo-nav {
         border-bottom: 5px solid var(--cor-borda-principal);
+    }
+
+    .apresentacao-container {
+        flex-direction: column; 
+        padding-top: 10px; 
+        align-items: center;
+    }
+
+    .foto-wrap {
+        width: 90%; 
+        max-width: 350px;
+    }
+    
+    .bio-conteudo {
+        width: 90%;
+        padding: 0;
+    }
+
+    .bio-titulo { 
+      font-size: 28px; 
+      text-align: center;
+    }
+
+    .bio-texto { 
+      font-size: 16px; 
+      line-height: 1.5;
     }
     
     .topo {
