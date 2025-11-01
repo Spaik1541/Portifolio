@@ -613,6 +613,8 @@ body {
     }
     
     
+    
+    
     .linha-contato5 {
         width: 80%;
     }
@@ -648,10 +650,19 @@ body {
         padding-top: 5px; 
         padding-bottom: 5px;
     }
+
+    .topo-pagina .nome {
+        display: none !important;
+        width: 0; 
+        height: 0;
+        padding: 0;
+        margin: 0;
+    }
     
     .nome {
         display: none;
     }
+
 
    .topo {
         height: auto; 
