@@ -1,123 +1,205 @@
-* {
-  box-sizing: border-box;
+
+
+html {
+    scroll-behavior: smooth;
 }
 
+:root {
+  --cor-fundo-principal: #beb894;
+  --cor-fundo-secundario: rgb(224, 215, 155); 
+  --cor-borda-principal: rgb(179, 169, 108); 
+  --cor-borda-escura: rgb(139, 135, 98); 
+  --cor-texto-principal: #000000;
+  --cor-texto-secundario: #060606;
+  --cor-hover: #cfc98e;
+  --cor-overlay: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] {
+  --cor-fundo-principal: #1A1A1A; 
+  --cor-fundo-secundario: #2C2C2C; 
+  --cor-borda-principal: #555555; 
+  --cor-borda-escura: #777777; 
+  --cor-texto-principal: #E0E0E0; 
+  --cor-texto-secundario: #F0F0F0;
+  --cor-hover: #444444; 
+  --cor-overlay: rgba(255, 255, 255, 0.1); 
+}
+
+#troca-tema { 
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--cor-fundo-secundario);
+    color: var(--cor-texto-principal);
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#troca-tema:hover {
+    background-color: var(--cor-hover);
+}
+
+.botao-troca-tema {
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--cor-fundo-principal); 
+  min-height: 100vh;
+}
+
+
 .fundo {
-  width: 100%;
-  height: 420%;
-  background: #938D6C;
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
+  min-height: 100vh;
 }
-.topo {
-  width: 100%;
-  height: 165px;
-  background: rgba(176,169,123,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
+
+.header-fixo {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999; 
 }
-.borda {
+
+.topo-pagina{
+  width: 100%;
+  height: 100px; 
+  background: var(--cor-fundo-secundario);
+  
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 5%; 
+}
+
+.borda-topo {
+  width: 100%;
+  height: 8px;
+  background: var(--cor-borda-principal);
+  position: relative;
+  top: -8px; 
+}
+
+.nome {
+  width: auto; 
+  color: var(--cor-texto-principal);
+  font-family: 'Jacques Francois', serif;
+  font-weight: normal;
+  font-size: 10vw; 
+  opacity: 1;
+  text-align: left;
+  padding: 10px 5%;
+  margin: 0; 
+}
+
+.nome h1 {
+  font-size: 3vw;
+}
+
+
+.menu-navegacao-rapida {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    max-width: 50%;
+}
+
+.apresentacao-container {
+    
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 30px;
+    padding: 30px 5%;
+    padding-top: 120px;
+}
+
+.foto-wrap {
+    position: relative;
+    width: 90%;
+    max-width: 450px;
+}
+
+.foto {
+  width: 100%;
+  aspect-ratio: 581 / 849; 
+  background: url("Fotolucas.jpg") no-repeat center center / cover;
+  border-radius: 43px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  position: relative;
+}
+
+.borda_foto {
   width: 100%;
   height: 100%;
   opacity: 1;
   position: absolute;
-  top: 0px;
-  left: 0px;
-  border: 8px solid rgba(132,125,82,1);
+  top: 0;
+  left: 0;
+  border: 9px solid var(--cor-borda-escura);
+  border-radius: 43px; 
   overflow: hidden;
 }
-.nome {
-  width: 100%;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 10px;
-  left: 70px;
-  font-family: Jacques Francois;
-  font-weight: Regular;
-  font-size: 30px;
-  opacity: 1;
-  text-align: top;
+
+.bio-conteudo {
+    width: 100%;
+    max-width: 766px;
+    padding: 0 10px;
 }
-.foto {
-  width: 481px;
-  height: 549px;
-  background: url("Fotolucas.jpg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 192px;
-  left: 33px;
-  border-top-left-radius: 43px;
-  border-top-right-radius: 43px;
-  border-bottom-left-radius: 43px;
-  border-bottom-right-radius: 43px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
+
+.bio-titulo { 
+  color: var(--cor-texto-principal);
+  font-family: "Jacques Francois Shadow", serif;
+  font-weight: normal;
+  font-size: 4vw; 
+  text-align: center;
+  margin-bottom: 20px;
 }
-.borda_foto {
-  width: 481px;
-  height: 549px;
-  background: rgba(217,217,217,0);
-  opacity: 1;
-  position: absolute;
-  top: 192px;
-  left: 33px;
-  border: 9px solid rgba(93,89,63,1);
-  border-top-left-radius: 31px;
-  border-top-right-radius: 31px;
-  border-bottom-left-radius: 31px;
-  border-bottom-right-radius: 31px;
-  overflow: hidden;
-}
-.bio {
-  width: 766px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 276px;
-  left: 606px;
-  font-family: "Jacques Francois";
-  font-weight: 1;
-  font-size: 26px;
-  opacity: 1;
+
+.bio-texto { 
+  color: var(--cor-texto-principal);
+  font-family: "Jacques Francois", serif;
+  font-weight: normal;
+  font-size: 1.5vw; 
+  line-height: 1.5;
   text-align: left;
 }
-.biografia {
-  width: 723px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 94px;
-  left: 611px;
-  font-family: "Jacques Francois Shadow";
-  font-weight: 1;
-  font-size: 54px;
-  opacity: 1;
-  text-align: center;
-}
+
 .container-caixas {
   display: flex;
+  flex-wrap: wrap; 
   justify-content: center; 
   align-items: center;
-  gap: 40px; 
-  margin-top: 800px; 
-  position: relative;
-  z-index: 10;
+  gap: 10px; 
+  margin-top: 5px; 
+  padding: 0; 
+  width: 100%;
 }
 
 .box1 {
-  width: 377px;
-  height: 127px;
-  flex-shrink: 0; 
+  width: auto; 
+  max-width: none;
+  height: 40px; 
+  min-width: 80px;
+  padding: 0 10px;
+  border: 5px solid var(--cor-borda-escura); 
   border-radius: 20px;
-  border: 8px solid #5D593F;
-  background: #B0A97C;
+  background: var(--cor-fundo-secundario);
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: center;
@@ -128,350 +210,520 @@
 
 .box1:hover {
   transform: scale(1.05);
-  background: #b8b27e;
+  background: var(--cor-hover);
 }
 
 .texto_box {
-display: flex;
-width: 325px;
-height: 199px;
-flex-direction: column;
-justify-content: center;
-flex-shrink: 0;
-color: #000;
-text-align: center;
-font-family: "IM FELL DW Pica";
-font-size: 64px;
-font-style: normal;
-font-weight: 400px;
-line-height: normal;
+  color: var(--cor-texto-principal);
+  text-align: center;
+  font-family: "IM FELL DW Pica", serif;
+  font-size: 14px; 
+  font-weight: normal;
+}
+
+.baixo-nav {
+  width: 100%;
+  background-color: var(--cor-fundo-secundario);
+  border: none;
+  border-bottom: 4px solid var(--cor-borda-principal);
+  color: var(--cor-texto-principal);
+  text-align: center;
+  font-family: "IM FELL DW Pica", serif;
+  font-size: 24px;
+  line-height: normal;
+  margin-top: 0;
+  padding: 5px 0;
+}
+.baixo-nav h3 {
+    font-size: 18px;
 }
 
 .secoes-secundarias {
     margin-top: 50px;
 }
 
-#projetos {
+#projetos, #sobre_mim, #contato, #mensagem{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 90px 30px; 
+    padding: 50px 5%; 
+    scroll-margin-top: 110px;
 }
 
-#projetos h2 {
-display: flex;
-width: 500px;
-height: 50px;
-flex-direction: column;
-justify-content: center;
-flex-shrink: 0;
-color: #000;
-text-align: center;
-font-family: "IM FELL DW Pica";
-font-size: 64px;
-font-style: normal;
-font-weight: 400px;
-line-height: normal;
+.container_geral { 
+    width: 90%;
+    max-width: 534px;
+    height: 100px;
+    min-height: 100px;
+    border-radius: 30px;
+    border: 11px solid var(--cor-borda-principal);
+    background: var(--cor-fundo-secundario);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.container_geral{
-width: 534px;
-height: 174px;
-flex-shrink: 0;
-border-radius: 30px;
-border: 11px solid #847D52;
-background: #B1AA7C;
-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-margin-top: 20px;
-margin-bottom: 20px;
-
+.container_geral h2 {
+  color: var(--cor-texto-principal);
+  text-align: center;
+  font-family: "IM FELL DW Pica", serif;
+  font-size: 7vw; 
+  font-weight: normal;
 }
+
+.sobre_mim_texto {
+  width: 100%;
+  max-width: 1300px;
+  color: var(--cor-texto-secundario);
+  font-family: "IM FELL English", serif;
+  font-size: 4.5vw; 
+  line-height: 1.6;
+  padding: 0 20px;
+}
+
+.sobre_mim_texto ul, .sobre_mim_texto p {
+    margin: 10px 0;
+}
+.sobre_mim_texto li {
+    margin-left: 40px;
+}
+
 .container-projetos {
-width: 1035px;
-height: 106px;
-flex-shrink: 0;
-border-radius: 37px;
-border: 7px solid #847D52;
-background: #B0A97C;
-margin-top: 20px;
-margin-bottom: 20px;
-position: relative;
-z-index: 10;
-cursor: pointer;
-transition: transform 0.2s ease;
-}
-
-.text-overlay {
-  position: absolute; 
-  font-size: 25px;
-  top: 50%; 
-  left: 70%; 
-  transform: translate(-50%, -50%); 
-  opacity: 0; 
-  color: white; 
-  background-color: rgba(0, 0, 0, 0.5); 
-  padding: 30px; 
-  transition: opacity 0.5s ease-in-out; 
+  width: 100%;
+  max-width: 1035px;
+  height: 80px;
+  border-radius: 37px;
+  border: 7px solid var(--cor-borda-principal);
+  background: var(--cor-fundo-secundario);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
 .container-projetos:hover {
   transform: scale(1.05);
-  background: #b8b27e;
+  background: var(--cor-hover);
 }
+
+.projeto-item {
+  color: var(--cor-texto-principal);
+  text-align: center;
+  font-family: "IM FELL DW Pica", serif;
+  font-size: 4vw; 
+  font-weight: normal;
+  width: 100%;
+}
+
+.text-overlay {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; 
+  color: white; 
+  background-color: var(--cor-overlay);
+  padding: 15px; 
+  transition: opacity 0.5s ease-in-out; 
+  font-size: 3vw;
+  border-radius: 37px;
+  text-align: center;
+}
+
 .container-projetos:hover .text-overlay {
  opacity: 1;
 }
 
-.projeto-item {
-display: flex;
-width: 1000px;
-height: 85px;
-flex-direction: column;
-justify-content: center;
-flex-shrink: 0;
-color: #000;
-text-align: center;
-font-family: "IM FELL DW Pica";
-font-size: 68px;
-font-style: normal;
-font-weight: 400px;
-line-height: normal;
 
-}
-
-#sobre_mim {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 90px 30px; 
-}
-
-#sobre_mim h2 {
-display: flex;
-width: 500px;
-height: 50px;
-flex-direction: column;
-justify-content: center;
-flex-shrink: 0;
-color: #000;
-text-align: center;
-font-family: "IM FELL DW Pica";
-font-size: 64px;
-font-style: normal;
-font-weight: 400px;
-line-height: normal;
-}
-
-.sobre_mim_texto {
-width: 1301px;
-height: 801px;
-flex-shrink: 0;
-color: #060606;
-font-family: "IM FELL English";
-font-size: 40px;
-font-style: normal;
-font-weight: 40px;
-line-height: normal;
-margin-left: 40px;
-}
-
-#contato {
+#contato .container-grupos {
     display: flex;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-}
-
-#contato h2 {
-
-color: #000;
-text-align: center;
-font-family: "IM FELL DW Pica";
-font-size: 64px;
-font-style: normal;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    margin-top: 20px;
 }
 
 
-.linha-contato {
-    position: absolute;
-    flex-direction: row;
-    top: 250px;
-    left: 100px;
+.linha-contato, .linha-contato2, .linha-contato3, .linha-contato4, .linha-contato5 {
     display: flex;
+    flex-direction: column; 
     align-items: center;
-    gap: 20px;
-}
-.linha-contato2 {
-    position: absolute;
-    flex-direction: row;
-    top: 250px;
-    left: 750px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-.linha-contato3 {
-    position: absolute;
-    top: 500px; 
-    left: 100px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-.linha-contato4 {
-    position: absolute;
-    top: 500px; 
-    left: 750px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    gap: 10px;
+    width: 45%; 
+    min-width: 250px;
+    position: static; 
 }
 
-.linha-contato5 {
-    position: absolute;
-    top: 750px; 
-    left: 100px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
+
 
 .icone_contato img {
-   
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%; 
-    background: #B0A97C;
-    border: 8px solid #5D593F;
-    padding: 10px;
+    background: var(--cor-fundo-secundario);
+    border: 8px solid var(--cor-borda-escura);
+    padding: 5px;
 }
 
-.caixa-info {
-    
-width: 377px;
-height: 137px;
-flex-shrink: 0;
-border-radius: 19px;
-border: 8px solid #5D593F;
-background: #B0A97C;
-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-display: flex;
-justify-content: center; 
-align-items: center;
-gap: 40px;
-position: relative;
-z-index: 10;
-transition: transform 0.2s ease, background 0.2s ease;
+.caixa-info, .caixa-info-grande {
+    width: 100%;
+    height: 80px;
+    border-radius: 19px;
+    border: 8px solid var(--cor-borda-escura);
+    background: var(--cor-fundo-secundario);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.caixa-info:hover {
+.caixa-info:hover, .caixa-info-grande:hover {
     transform: scale(1.05);
-    background: #b8b27e;
+    background: var(--cor-hover);
 }
 
-.caixa_texto{
+.caixa_texto {
+    width: 90%;
+    color: var(--cor-texto-principal);
+    text-align: center;
+    font-family: "IM FELL DW Pica", serif;
+    font-size: 3.5vw; 
+    font-weight: normal;
+    text-decoration: underline;
+}
 
-display: flex;
-width: 325px;
-height: 99px;
-flex-direction: column;
-justify-content: center;
-flex-shrink: 0;
-color: #000;
-text-align: center;
-font-family: "IM FELL DW Pica";
-font-size: 48px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-
+.linha-contato5 .caixa_texto {
+    font-size: 3vw;
 }
 
 
-.caixa-info-grande {
+.baixo-creditos {
+    width: 100%;
+    background-color: var(--cor-fundo-secundario);
+    text-align: center;
+    font-family: "IM FELL DW Pica", serif;
+    font-size: 18px;
+    line-height: 50px;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+.formulario-contato {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto 50px auto;
+    padding: 20px;
+    background-color: var(--cor-fundo-secundario);
+    border: 8px solid var(--cor-borda-escura);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.campo-grupo {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-contato label {
+    color: var(--cor-texto-principal);
+    font-family: "IM FELL DW Pica", serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.formulario-contato input[type="text"],
+.formulario-contato input[type="email"],
+.formulario-contato textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--cor-borda-principal);
+    border-radius: 8px;
+    background-color: white; 
+    color: black;
+    font-family: "IM FELL English", serif;
+    font-size: 18px;
+    transition: border-color 0.3s ease;
+}
+
+.formulario-contato input:focus,
+.formulario-contato textarea:focus {
+    border-color: var(--cor-borda-escura);
+    outline: none;
+}
+
+.formulario-contato textarea {
+    resize: vertical;
+}
+
+
+.mensagem-erro {
+    color: #ff4d4d; 
+    font-family: "IM FELL English", serif;
+    font-size: 14px;
+    margin-top: 5px;
+    height: 18px; 
+}
+
+.botao-enviar {
+    width: 100%;
+    padding: 15px 20px;
+    margin-top: 15px;
+    background-color: var(--cor-borda-escura);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: "IM FELL DW Pica", serif;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.botao-enviar:hover {
+    background-color: #4a4632; 
+    transform: translateY(-2px);
+}
+
+
+.status-envio {
+    text-align: center;
+    font-family: "IM FELL DW Pica", serif;
+    font-size: 18px;
+    margin-top: 20px;
+    min-height: 25px;
+}
+
+
+@media (min-width: 768px) {
     
-width: 1030px;
-height: 164px;
-flex-shrink: 0;
-border-radius: 19px;
-border: 8px solid #5D593F;
-background: #B0A97C;
-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-display: flex;
-justify-content: center; 
-align-items: center;
-gap: 40px;
-position: relative;
-z-index: 10;
-transition: transform 0.2s ease, background 0.2s ease;
+    .topo-pagina{
+        height: 120px; 
+    }
+    
+    .nome h1 {
+        font-size: 24px;
+    }
+    .nome {
+        font-size: 32px;
+    }
+    
+
+    .menu-navegacao-rapida {
+        align-items: flex-end; 
+    }
+    
+    .baixo-nav h3 {
+        font-size: 20px;
+    }
+    
+    .container-caixas {
+        gap: 15px; 
+    }
+    
+    .box1 {
+        height: 50px; 
+        min-width: 100px;
+        width: auto;
+    }
+
+    .texto_box {
+        font-size: 20px;
+    }
+    
+    
+    
+    .apresentacao-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 5%;
+        padding: 50px 5%;
+        padding-top: 140px;
+    }
+    
+    .foto-wrap {
+        width: 40%;
+        max-width: 481px;
+    }
+    
+    .biografia-conteudo {
+        width: 55%;
+        max-width: 700px;
+    }
+    
+    .biografia {
+        font-size: 54px;
+        text-align: left; 
+    }
+    
+    .bio {
+        font-size: 20px;
+    }
+  
+    
+    .container_geral h2 {
+        font-size: 50px;
+    }
+    
+    .sobre_mim_texto {
+        font-size: 32px;
+    }
+
+    .projeto-item {
+        font-size: 50px;
+    }
+    
+    .text-overlay {
+        font-size: 25px;
+    }
+
+    .linha-contato, .linha-contato2, .linha-contato3, .linha-contato4 {
+        width: 40%;
+        min-width: 300px;
+    }
+
+    .caixa_texto {
+        font-size: 24px;
+    }
+    
+    
+    .linha-contato5 {
+        width: 80%;
+    }
+    .linha-contato5 .caixa_texto {
+        font-size: 28px;
+    }
+    #projetos, #sobre_mim, #contato {
+        scroll-margin-top: 130px;
 }
 
-.caixa-info-grande:hover {
-    transform: scale(1.05);
-    background: #b8b27e;
+}
+@media (min-width: 1200px) {
+    .biografia {
+        font-size: 64px;
+    }
+    
+    .bio {
+        font-size: 26px;
+    }
+    
+    .caixa_texto {
+        font-size: 32px;
+    }
+    
+    .linha-contato5 .caixa_texto {
+        font-size: 36px;
+    }
 }
 
+@media (max-width: 600px) {
+    
 
-.caixa_texto{
+    .topo-pagina{
+        flex-direction: column;
+        height: auto; 
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    .nome {
+        padding: 5px 5%; 
+        width: 100%;
+        text-align: center;
+    }
+    
+    .menu-navegacao-rapida {
+        width: 90%; 
+        margin-top: 15px;
+    }
+    
+    .container-caixas {
+        flex-wrap: nowrap; 
+        justify-content: space-between;
+        gap: 5px;
+        width: 100%;
+    }
+    
+    .box1 {
+        height: 35px;
+        min-width: 30%; 
+        padding: 0 5px;
+        border-width: 4px;
+    }
+    
+    .texto_box {
+        font-size: 12px;
+    }
+    
+    .baixo-nav {
+        border-bottom: 5px solid var(--cor-borda-principal);
+    }
+    
+    .topo {
+        height: 70px; 
+    }
+    .nome {
+        font-size: 28px; 
+    }
+    .container_geral h2 {
+        font-size: 24px;
+        padding: 10px 0;
+    }
 
-display: flex;
-width: 860px;
-height: 118px;
-flex-direction: column;
-justify-content: center;
-flex-shrink: 0;
-color: #000;
-text-align: center;
-font-family: "IM FELL DW Pica";
-font-size: 48px;
-font-style: normal;
-font-weight: 400px;
-line-height: normal;
-text-decoration-line: underline;
-text-decoration-style: solid;
-text-decoration-skip-ink: auto;
-text-decoration-thickness: auto;
-text-underline-offset: auto;
-text-underline-position: from-font;
+    .container_geral, .formulario-contato {
+        width: 95%; 
+        border-width: 5px; 
+        padding: 15px;
+    }
+    
+    .container-caixas {
+        flex-direction: row; 
+        gap: 20px;
+    }
+    
+    .borda_foto img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .formulario-contato label,
+    .formulario-contato input,
+    .formulario-contato textarea {
+        font-size: 16px;
+    }
+    .botao-enviar {
+        padding: 12px;
+        font-size: 18px;
+    }
+
+    #troca-tema {
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        padding: 8px 10px;
+    }
+
+    section {
+        padding: 15px 0;
+    }
 }
-
-.baixo{
-display: flex;
-width: 100%;
-height: 50px;
-flex-direction: column;
-justify-content: center;
-flex-shrink: 0;
-color: #000000;
-background-color: #B0A97C;
-text-align: center;
-font-family: "IM FELL DW Pica";
-font-size: 32px;
-font-style: normal;
-font-weight: 400px;
-line-height: normal;
-}
-
-
-.deixa_embaixo_pagina{
-
-  position: absolute;
-  top: 3942px;
-  left: 9px;
-  display: flex;
-  align-items: bottom;
-  gap: 10px;
-  opacity: 50%;
- 
-
-
-
-
-}
-
-
-
-
-
-
