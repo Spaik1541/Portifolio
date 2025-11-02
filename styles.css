@@ -1,3 +1,7 @@
+    /* 
+   1. Reset e Variaveis Globias
+    */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -32,6 +36,26 @@ html {
   --cor-texto-hover: #060606;
 }
 
+body {
+  background: var(--cor-fundo-principal); 
+  min-height: 100vh;
+}
+
+.fundo {
+  min-height: 100vh;
+}
+
+    /* 
+   2. Cabeçalho e elementos 
+    */
+
+.header-fixo {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999; 
+}
+
 #troca-tema { 
     position: fixed;
     top: 20px;
@@ -52,47 +76,6 @@ html {
     background-color: var(--cor-hover);
 }
 
-body {
-  background: var(--cor-fundo-principal); 
-  min-height: 100vh;
-}
-
-.relogio-digital {
-    color: var(--cor-texto-principal);
-    font-family: 'IM FELL DW Pica', serif;
-    font-size: 1.5vw;
-    text-align: center;
-    font-weight: normal;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.fundo {
-  min-height: 100vh;
-}
-
-.header-fixo {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999; 
-}
-
-
-.mensagem-erro {
-    color: #cc0000; 
-    font-size: 14px; 
-    margin-top: 5px;
-    display: block; 
-    min-height: 1.2em; 
-    font-family: "IM FELL English", serif; 
-}
-
-.campo-grupo {
-    margin-bottom: 20px; 
-}
-
 .topo-pagina{
   width: 100%;
   height: 100px; 
@@ -111,29 +94,6 @@ body {
   top: -8px; 
 }
 
-.mensagem-topo {
-    color: var(--cor-texto-principal);
-    font-family: 'IM FELL DW Pica', serif;
-    font-size: 2vw; 
-    text-align: center;
-    font-weight: bold;
-    flex-grow: 1; 
-    padding: 0 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: auto; 
-}
-
-.mensagem-e-relogio {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center;
-    flex-grow: 1; 
-}
-
-
 .nome {
   width: auto; 
   color: var(--cor-texto-principal);
@@ -148,9 +108,47 @@ body {
   font-size: 3vw;
 }
 
+.mensagem-e-relogio {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    flex-grow: 1; 
+}
+
+.mensagem-topo {
+    color: var(--cor-texto-principal);
+    font-family: 'IM FELL DW Pica', serif;
+    font-size: 2vw; 
+    text-align: center;
+    font-weight: bold;
+    flex-grow: 1; 
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: auto; 
+}
+
+.relogio-digital {
+    color: var(--cor-texto-principal);
+    font-family: 'IM FELL DW Pica', serif;
+    font-size: 1.5vw;
+    text-align: center;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .menu-hamburguer {
     display: none; 
 }
+
+/* 
+  2.5 - Navegação Rápida 
+*/
+
 
 .menu-navegacao-rapida {
     display: flex;
@@ -159,13 +157,73 @@ body {
     max-width: 50%;
 }
 
+.baixo-nav {
+  width: 100%;
+  background-color: var(--cor-fundo-secundario);
+  border: none;
+  border-bottom: 4px solid var(--cor-borda-principal);
+  color: var(--cor-texto-principal);
+  text-align: center;
+  font-family: "IM FELL DW Pica", serif;
+  font-size: 24px;
+  line-height: normal;
+  padding: 5px 0;
+}
+
+.baixo-nav h3 {
+    font-size: 18px;
+}
+
+.container-caixas {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  align-items: center;
+  gap: 10px; 
+  margin-top: 5px; 
+  width: 100%;
+}
+
+.box_navegacao {
+  width: auto; 
+  height: 40px; 
+  min-width: 80px;
+  padding: 0 10px;
+  border: 5px solid var(--cor-borda-escura); 
+  border-radius: 20px;
+  background: var(--cor-fundo-secundario);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.box_navegacao:hover {
+  transform: scale(1.05);
+  background: var(--cor-hover);
+}
+
+.texto_box {
+  color: var(--cor-texto-principal);
+  text-align: center;
+  font-family: "IM FELL DW Pica", serif;
+  font-size: 14px; 
+  font-weight: normal;
+}
+
+/* 
+   3. Apresentacao
+*/
+
 .apresentacao-container {
     display: flex;
     flex-direction: column; 
     align-items: center;
     gap: 30px;
     padding: 30px 5%;
-    padding-top: 140px;
+    padding-top: 140px; 
 }
 
 .foto-wrap {
@@ -180,7 +238,6 @@ body {
   background: url("Fotolucas.jpg") no-repeat center center / cover;
   border-radius: 43px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  
   position: relative;
 }
 
@@ -219,60 +276,9 @@ body {
   text-align: left;
 }
 
-.container-caixas {
-  display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
-  align-items: center;
-  gap: 10px; 
-  margin-top: 5px; 
-  width: 100%;
-}
-
-.box1 {
-  width: auto; 
-  height: 40px; 
-  min-width: 80px;
-  padding: 0 10px;
-  border: 5px solid var(--cor-borda-escura); 
-  border-radius: 20px;
-  background: var(--cor-fundo-secundario);
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.box1:hover {
-  transform: scale(1.05);
-  background: var(--cor-hover);
-}
-
-.texto_box {
-  color: var(--cor-texto-principal);
-  text-align: center;
-  font-family: "IM FELL DW Pica", serif;
-  font-size: 14px; 
-  font-weight: normal;
-}
-
-.baixo-nav {
-  width: 100%;
-  background-color: var(--cor-fundo-secundario);
-  border: none;
-  border-bottom: 4px solid var(--cor-borda-principal);
-  color: var(--cor-texto-principal);
-  text-align: center;
-  font-family: "IM FELL DW Pica", serif;
-  font-size: 24px;
-  line-height: normal;
-  padding: 5px 0;
-}
-.baixo-nav h3 {
-    font-size: 18px;
-}
+/* 
+   4. Seções secundrias (projetos, sobremim, mensagem, contato)
+*/
 
 .secoes-secundarias {
     margin-top: 50px;
@@ -283,7 +289,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 50px 5%; 
-    scroll-margin-top: 110px;
+    scroll-margin-top: 110px; 
 }
 
 .container_geral { 
@@ -318,6 +324,11 @@ body {
   line-height: 1.6;
   padding: 0 20px;
 }
+
+
+/* 
+   5. Projetos
+*/
 
 .container-projetos {
   width: 100%;
@@ -375,6 +386,9 @@ body {
  opacity: 1;
 }
 
+/* 
+   6. COntato
+*/
 
 #contato .container-grupos {
     display: flex;
@@ -438,17 +452,9 @@ body {
     font-size: 3vw;
 }
 
-
-.baixo-creditos {
-    width: 100%;
-    background-color: var(--cor-fundo-secundario);
-    text-align: center;
-    font-family: "IM FELL DW Pica", serif;
-    font-size: 18px;
-    line-height: 50px;
-    margin-top: 20px;
-}
-
+/* 
+   7. Formulario Mensagem
+*/
 
 .formulario-contato {
     width: 90%;
@@ -498,6 +504,17 @@ body {
     resize: vertical;
 }
 
+
+.mensagem-erro {
+    color: #cc0000; 
+    font-size: 14px; 
+    margin-top: 5px;
+    display: block; 
+    min-height: 1.2em; 
+    font-family: "IM FELL English", serif; 
+}
+
+
 .botao-enviar {
     width: 100%;
     padding: 15px 20px;
@@ -526,21 +543,23 @@ body {
     min-height: 25px;
 }
 
-@media (min-width: 1200px) {
+/* 
+   8. Rodape
+*/
 
-    .bio {
-        font-size: 26px;
-    }
-    
-    .caixa_texto {
-        font-size: 32px;
-    }
-    
-    .linha-contato5 .caixa_texto {
-        font-size: 36px;
-    }
+.baixo-creditos {
+    width: 100%;
+    background-color: var(--cor-fundo-secundario);
+    text-align: center;
+    font-family: "IM FELL DW Pica", serif;
+    font-size: 18px;
+    line-height: 50px;
+    margin-top: 20px;
 }
 
+/* 
+   9. Responsividade
+*/
 
 @media (min-width: 768px) {
     
@@ -548,19 +567,13 @@ body {
         height: 120px; 
     }
 
-    .foto-wrap {
-        width: 40%;
-        max-width: 481px;
-    }
-    
-   .nome {
+    .nome {
         font-size: 32px; 
     }
     .nome h1 {
         font-size: 24px;
     }
     
-
     .menu-navegacao-rapida {
         align-items: flex-end; 
     }
@@ -597,10 +610,6 @@ body {
         max-width: 481px;
     }
     
-    .bio {
-        font-size: 20px;
-    }
-  
     .bio-conteudo {
         width: 55%;
         max-width: 700px;
@@ -675,7 +684,6 @@ body {
 
 @media (max-width: 767px) { 
     
-
     .topo-pagina{
         flex-wrap: wrap; 
         justify-content: space-between; 
@@ -754,8 +762,6 @@ body {
     .nome {
         display: none;
     }
-
-   /* Removido .topo */
     
     .menu-navegacao-rapida {
         position: fixed;
@@ -875,5 +881,20 @@ body {
 
     section {
         padding: 15px 0;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .bio {
+        font-size: 26px;
+    }
+    
+    .caixa_texto {
+        font-size: 32px;
+    }
+    
+    .linha-contato5 .caixa_texto {
+        font-size: 36px;
     }
 }
