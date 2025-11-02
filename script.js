@@ -134,42 +134,44 @@ function alternarTema() {
 
  
     function validarFormulario() {
-        let valido = true;
-        
-        const nome = document.getElementById('nome');
-        if (nome.value.trim() === '') {
-            exibirErro('erro-nome', 'O campo Nome é obrigatório.');
-            valido = false;
-        } else {
-            exibirErro('erro-nome', '');
-        }
-
-     
-        const email = document.getElementById('email');
-        if (email.value.trim() === '') {
-            exibirErro('erro-email', 'O campo E-mail é obrigatório.');
-            valido = false;
-        } else if (!validarEmailFormato(email.value)) {
-            exibirErro('erro-email', 'Por favor, insira um e-mail válido.');
-            valido = false;
-        } else {
-            exibirErro('erro-email', '');
-        }
-
-        const mensagem = document.getElementById('mensagem');
-        if (mensagem.value.trim() === '') {
-            exibirErro('erro-mensagem', 'O campo Mensagem é obrigatório.');
-            valido = false;
-        } else if (mensagem.value.trim().length < 10) {
-            exibirErro('erro-mensagem', 'A mensagem deve ter pelo menos 10 caracteres.');
-            valido = false;
-        } else {
-            exibirErro('erro-mensagem', '');
-        }
-
-        return valido;
+    let valido = true;
+    
+  
+    const nome = document.getElementById('nome');
+    if (nome.value.trim() === '') {
+        exibirErro('erro-nome', 'O campo Nome é obrigatório.');
+        valido = false;
+    } else {
+        exibirErro('erro-nome', '');
     }
 
+    const email = document.getElementById('email');
+   
+    if (email.value.trim() === '') {
+        exibirErro('erro-email', 'O campo E-mail é obrigatório.');
+        valido = false;
+    } else if (!validarEmailFormato(email.value)) { 
+        exibirErro('erro-email', 'Por favor, insira um e-mail válido.');
+        valido = false;
+    } else {
+        exibirErro('erro-email', '');
+    }
+
+
+    const mensagem = document.getElementById('mensagem-texto'); 
+    
+    if (mensagem.value.trim() === '') {
+        exibirErro('erro-mensagem', 'O campo Mensagem é obrigatório.');
+        valido = false;
+    } else if (mensagem.value.trim().length < 10) {
+        exibirErro('erro-mensagem', 'A mensagem deve ter pelo menos 10 caracteres.');
+        valido = false;
+    } else {
+        exibirErro('erro-mensagem', '');
+    }
+
+    return valido;
+}
     
     function exibirErro(idElemento, mensagem) {
         const spanErro = document.getElementById(idElemento);
@@ -234,7 +236,6 @@ function alternarTema() {
     function atualizarRelogio() {
         const agora = new Date();
         
-        // Formata a hora, minuto e segundo para ter dois dígitos (ex: 09:05:30)
         const hora = String(agora.getHours()).padStart(2, '0');
         const minuto = String(agora.getMinutes()).padStart(2, '0');
         const segundo = String(agora.getSeconds()).padStart(2, '0');
@@ -246,7 +247,7 @@ function alternarTema() {
             elementoRelogio.textContent = tempoFormatado;
         }
     }
-    
+
     atualizarRelogio();
     setInterval(atualizarRelogio, 1000);
 

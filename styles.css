@@ -45,17 +45,12 @@ html {
     font-size: 24px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; 
 }
 
 #troca-tema:hover {
     background-color: var(--cor-hover);
 }
-
-.botao-troca-tema {
-  transition: background-color 0.3s, color 0.3s; 
-}
-
 
 body {
   background: var(--cor-fundo-principal); 
@@ -71,7 +66,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0px 10px;
 }
 
 .fundo {
@@ -85,18 +79,29 @@ body {
     z-index: 999; 
 }
 
+
+.mensagem-erro {
+    color: #cc0000; 
+    font-size: 14px; 
+    margin-top: 5px;
+    display: block; 
+    min-height: 1.2em; 
+    font-family: "IM FELL English", serif; 
+}
+
+.campo-grupo {
+    margin-bottom: 20px; 
+}
+
 .topo-pagina{
   width: 100%;
   height: 100px; 
   background: var(--cor-fundo-secundario);
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-right: 5%; 
 }
-
-
 
 .borda-topo {
   width: 100%;
@@ -135,10 +140,8 @@ body {
   font-family: 'Jacques Francois', serif;
   font-weight: normal;
   font-size: 10vw; 
-  opacity: 1;
   text-align: left;
   padding: 10px 5%;
-  margin: 0; 
 }
 
 .nome h1 {
@@ -157,7 +160,6 @@ body {
 }
 
 .apresentacao-container {
-    
     display: flex;
     flex-direction: column; 
     align-items: center;
@@ -178,14 +180,13 @@ body {
   background: url("Fotolucas.jpg") no-repeat center center / cover;
   border-radius: 43px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  opacity: 1;
+  
   position: relative;
 }
 
 .borda_foto {
   width: 100%;
   height: 100%;
-  opacity: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -225,13 +226,11 @@ body {
   align-items: center;
   gap: 10px; 
   margin-top: 5px; 
-  padding: 0; 
   width: 100%;
 }
 
 .box1 {
   width: auto; 
-  max-width: none;
   height: 40px; 
   min-width: 80px;
   padding: 0 10px;
@@ -269,7 +268,6 @@ body {
   font-family: "IM FELL DW Pica", serif;
   font-size: 24px;
   line-height: normal;
-  margin-top: 0;
   padding: 5px 0;
 }
 .baixo-nav h3 {
@@ -291,7 +289,6 @@ body {
 .container_geral { 
     width: 90%;
     max-width: 534px;
-    height: 100px;
     min-height: 100px;
     border-radius: 30px;
     border: 11px solid var(--cor-borda-principal);
@@ -320,13 +317,6 @@ body {
   font-size: 4.5vw; 
   line-height: 1.6;
   padding: 0 20px;
-}
-
-.sobre_mim_texto ul, .sobre_mim_texto p {
-    margin: 10px 0;
-}
-.sobre_mim_texto li {
-    margin-left: 40px;
 }
 
 .container-projetos {
@@ -403,7 +393,6 @@ body {
     gap: 10px;
     width: 45%; 
     min-width: 250px;
-    position: static; 
 }
 
 
@@ -507,15 +496,6 @@ body {
 
 .formulario-contato textarea {
     resize: vertical;
-}
-
-
-.mensagem-erro {
-    color: #ff4d4d; 
-    font-family: "IM FELL English", serif;
-    font-size: 14px;
-    margin-top: 5px;
-    height: 18px; 
 }
 
 .botao-enviar {
@@ -668,7 +648,7 @@ body {
     }
     #projetos, #sobre_mim, #contato {
         scroll-margin-top: 130px;
-}
+    }
 
     .mensagem-e-relogio {
         flex-grow: 1;
@@ -683,17 +663,17 @@ body {
         align-items: center;
         flex-grow: 1;
         min-height: auto; 
-        font-size: 40px;
+        font-size: 30px;
     }
 
     .relogio-digital {
        font-size: 30px; 
-    margin-top: 5px;
+       margin-top: 5px;
     }
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) { 
     
 
     .topo-pagina{
@@ -753,13 +733,6 @@ body {
         order: 0;
     }
 
-    .relogio-digital {
-        order: 3; 
-        width: 100%;
-        text-align: center;
-        margin-top: 2px;
-    }
-
     .menu-hamburguer .linha {
         width: 100%;
         height: 3px;
@@ -782,9 +755,7 @@ body {
         display: none;
     }
 
-   .topo {
-        height: auto; 
-    }
+   /* Removido .topo */
     
     .menu-navegacao-rapida {
         position: fixed;
@@ -855,9 +826,6 @@ body {
       line-height: 1.5;
     }
     
-    .topo {
-        height: 70px; 
-    }
     .nome {
         font-size: 28px; 
     }
