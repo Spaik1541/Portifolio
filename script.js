@@ -46,12 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return regex.test(email);
     }
     
-    function exibirErro(idElemento, mensagem) {
+    function exibirErro(idElemento, mensagem_erro) {
         const spanErro = document.getElementById(idElemento);
-        spanErro.textContent = mensagem;
+        spanErro.textContent = mensagem_erro;
         
         const campo = spanErro.previousElementSibling;
-        if (mensagem) {
+        if (mensagem_erro) {
             campo.style.borderColor = '#cc0000';
         } else {
             campo.style.borderColor = ''; 
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem(chaveArmazenamento, 'claro'); 
             if (botaoTrocaTema) {
                 botaoTrocaTema.textContent = '☀️'; 
-                botaoTrotaTema.setAttribute('aria-label', 'Alternar para o Tema Escuro');
+                botaoTrocaTema.setAttribute('aria-label', 'Alternar para o Tema Escuro');
             }
         }
     }
